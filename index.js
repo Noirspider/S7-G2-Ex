@@ -32,7 +32,7 @@ class Pet {
   }
 
   hasSameOwner(anotherPet) {
-    return this.ownerName.toLowerCase === anotherPet.ownerName.toLowerCase;
+    return this.ownerName.toLowerCase() === anotherPet.ownerName.toLowerCase();
   }
 }
 
@@ -47,6 +47,7 @@ document.getElementById("petForm").addEventListener("submit", function (event) {
   const pet = new Pet(petName, ownerName, species, breed);
   addPetToList(pet);
   addPetToArray(pet);
+  compareOwners();
 });
 
 function addPetToArray(pet) {
@@ -54,7 +55,11 @@ function addPetToArray(pet) {
 }
 
 function compareOwners() {
-  console.log(petArray(0).hasSameOwner(petArray(1)));
+  if (petArray.length >= 2) {
+    let pet1 = petArray[0];
+    let pet2 = petArray[1];
+    console.log("Hanno lo stesso padrone? " + pet1.hasSameOwner(pet2));
+  }
 }
 
 function addPetToList(pet) {
