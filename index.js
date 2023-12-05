@@ -45,6 +45,7 @@ document.getElementById("petForm").addEventListener("submit", function (event) {
   const breed = document.getElementById("breed").value;
 
   const pet = new Pet(petName, ownerName, species, breed);
+
   addPetToList(pet);
   addPetToArray(pet);
   compareOwners();
@@ -56,6 +57,7 @@ function addPetToArray(pet) {
 
 function compareOwners() {
   if (petArray.length >= 2) {
+    array.forEach((petArray) => {});
     let pet1 = petArray[0];
     let pet2 = petArray[1];
     console.log("Hanno lo stesso padrone? " + pet1.hasSameOwner(pet2));
@@ -65,9 +67,8 @@ function compareOwners() {
 function addPetToList(pet) {
   const petList = document.getElementById("petList");
   const petItem = document.createElement("li");
-  petItem.textContent = `${pet.petName} (${pet.species} - ${pet.breed}), proprietario: ${pet.ownerName}`;
+  petItem.textContent = `Nome: ${pet.petName}, Specie: ${pet.species}  Razza: ${pet.breed}, proprietario: ${pet.ownerName}`;
   petList.appendChild(petItem);
 
-  // Reset form fields
   document.getElementById("petForm").reset();
 }
