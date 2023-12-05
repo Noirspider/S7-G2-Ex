@@ -30,7 +30,7 @@ class Pet {
   }
 
   hasSameOwner(anotherPet) {
-    return this.ownerName === anotherPet.ownerName9;
+    return this.ownerName === anotherPet.ownerName;
   }
 }
 
