@@ -21,6 +21,8 @@ const utente1 = new User("Mario", "Mario", 31, "Collina Fungosa");
 const utente2 = new User("Luigi", "Mario", 31, "Via Koopa");
 confrontoEtà(utente1, utente2);
 
+const petArray = [];
+
 class Pet {
   constructor(petName, ownerName, species, breed) {
     this.petName = petName;
@@ -30,7 +32,7 @@ class Pet {
   }
 
   hasSameOwner(anotherPet) {
-    return this.ownerName === anotherPet.ownerName;
+    return this.ownerName.toLowerCase === anotherPet.ownerName.toLowerCase;
   }
 }
 
@@ -44,7 +46,16 @@ document.getElementById("petForm").addEventListener("submit", function (event) {
 
   const pet = new Pet(petName, ownerName, species, breed);
   addPetToList(pet);
+  addPetToArray(pet);
 });
+
+function addPetToArray(pet) {
+  petArray.push(pet);
+}
+
+function compareOwners() {
+  console.log(petArray(0).hasSameOwner(petArray(1)));
+}
 
 function addPetToList(pet) {
   const petList = document.getElementById("petList");
